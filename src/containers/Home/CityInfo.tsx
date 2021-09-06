@@ -13,7 +13,7 @@ export const CityInfo = () => {
         )}
       >
         <p className={classNames("font-semibold uppercase")}>Pune</p>
-        <FaStar size={25} className={classNames("cursor-pointer")} />
+        <FaStar size={25} className={classNames("cursor-pointer btn")} />
       </div>
       <div></div>
     </div>
