@@ -15,7 +15,7 @@ export const CitiesList = () => {
         <p className={classNames("font-semibold uppercase")}>Cities</p>
         <FaPlusSquare size={25} className={classNames("cursor-pointer")} />
       </div>
-      <div></div>
+      <div className="p-8"></div>
     </div>
   );
 };
