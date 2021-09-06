@@ -19,7 +19,7 @@ export const Layout = () => {
       )}
     >
       <Navbar menus={menus} />
-      <div className={classNames("w-11/12", styles.layout__routes)}>
+      <div className={classNames("w-11/12 p-10", styles.layout__routes)}>
         <Routes />
       </div>
     </div>
