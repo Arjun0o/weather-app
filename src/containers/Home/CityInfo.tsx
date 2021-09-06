@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Home.module.css";
+import { Button } from "../../components";
 import classNames from "classnames";
 import { FaStar } from "react-icons/fa";
 
@@ -12,8 +13,10 @@ export const CityInfo = () => {
           styles.cityInfo__header
         )}
       >
-        <p className={classNames("font-semibold uppercase")}>Pune</p>
-        <FaStar size={25} className={classNames("cursor-pointer btn")} />
+        <h1 className={classNames("font-semibold uppercase")}>Pune</h1>
+        <Button type="button">
+          <FaStar size={25} className={classNames("icon")} />
+        </Button>
       </div>
       <div></div>
     </div>

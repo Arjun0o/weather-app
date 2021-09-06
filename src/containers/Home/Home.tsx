@@ -6,11 +6,13 @@ import { CityInfo } from "./CityInfo";
 
 export const Home = () => {
   return (
-    <div
-      className={classNames("w-full h-full flex justify-around", styles.home)}
-    >
-      <CitiesList />
-      <CityInfo />
-    </div>
+    <>
+      <div
+        className={classNames("w-full h-full flex justify-around", styles.home)}
+      >
+        <CitiesList />
+        <CityInfo />
+      </div>
+    </>
   );
 };
