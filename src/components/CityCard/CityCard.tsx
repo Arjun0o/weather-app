@@ -9,7 +9,12 @@ interface CityCardProps {
 
 export const CityCard = ({ title, temp }: CityCardProps) => {
   return (
-    <div className={classNames("p-5 rounded-lg cursor-pointer", styles.card)}>
+    <div
+      className={classNames(
+        "p-5 rounded-lg cursor-pointer shadow",
+        styles.card
+      )}
+    >
       <h2 className="mb-4 font-bold">{title}</h2>
       <p>{temp}</p>
     </div>

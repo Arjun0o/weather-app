@@ -21,3 +21,8 @@
   background: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 60%);
   border-bottom: 1px solid #fff;
 }
+
+.cities__addBtn:hover,
+.cities__addBtn:focus {
+  fill: rgba(0, 0, 0, 0.4);
+}

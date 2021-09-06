@@ -13,7 +13,10 @@ export const CitiesList = () => {
         )}
       >
         <p className={classNames("font-semibold uppercase")}>Cities</p>
-        <FaPlusSquare size={25} className={classNames("cursor-pointer")} />
+        <FaPlusSquare
+          size={25}
+          className={classNames("cursor-pointer", styles.cities__addBtn)}
+        />
       </div>
       <div className="p-8"></div>
     </div>

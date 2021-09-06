@@ -14,7 +14,7 @@ export const NavItem = ({ name, path }: NavItemProps) => {
       <Link
         to={path}
         className={classNames(
-          "pointer p-8 flex justify-center items-center no-underline rounded-lg",
+          "pointer p-8 flex justify-center items-center shadow no-underline rounded-lg",
           styles.navitem__link
         )}
       >

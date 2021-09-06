@@ -11,7 +11,7 @@ export const Navbar = ({ menus }: SidebarProps) => {
   return (
     <div
       className={classNames(
-        "flex justify-start items-center flex-col p-6",
+        "flex justify-start items-center shadow flex-col p-6",
         styles.menu
       )}
     >
