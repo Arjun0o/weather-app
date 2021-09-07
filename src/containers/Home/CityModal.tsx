@@ -31,7 +31,6 @@ export const CityModal = ({ open, onClose }: Props) => {
     }
   }, []);
 
-  console.log(cities, searchCities);
   return (
     <CustomModal
       overlayClassName={styles.overlay}
