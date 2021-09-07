@@ -3,6 +3,7 @@ import { Action } from "redux";
 import axios from "axios";
 
 const WEATHER_API_KEY = "fbbc5458489286efe446af162e2def9e";
+
 //actions
 const GET_WEATHER_UPDATES = "GET_WEATHER_UPDATES";
 const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
@@ -186,7 +187,6 @@ export const addCities = (city: string): ThunkAction<void, {}, {}, Action> => {
 export const addFavorites = (
   city: string
 ): ThunkAction<void, {}, {}, Action> => {
-  console.log(city);
   return async (dispatch: ThunkDispatch<{}, {}, Action>): Promise<void> => {
     try {
       const { data } = await axios.get(
@@ -199,7 +199,6 @@ export const addFavorites = (
         coords: data?.coord,
         main: data?.main,
       };
-      console.log(data);
       dispatch(AddToFavorites(cityData));
     } catch (e) {
       const { message } = e.response.data;

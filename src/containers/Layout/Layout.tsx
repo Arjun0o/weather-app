@@ -29,12 +29,12 @@ const Layout = ({ cities }: Props) => {
   return (
     <div
       className={classNames(
-        "h-screen w-full flex space-between",
+        "h-screen w-full flex space-between overflow-y-scroll",
         styles.layout
       )}
     >
       <Navbar menus={menus} />
-      <div className={classNames("w-11/12 p-10", styles.layout__routes)}>
+      <div className={classNames("w-11/12 pl-64 p-10", styles.layout__routes)}>
         <Routes openModal={openModal} />
       </div>
       <CityModal
@@ -50,6 +50,7 @@ const mapStateToProps = function (state: any) {
   return {
     cities: state.data.cities,
     activeCity: state.data.activeCity,
+    favorites: state.data.favorites,
   };
 };
 

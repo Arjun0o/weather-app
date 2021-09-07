@@ -36,12 +36,13 @@ export const CityModal = ({ open, onClose, existingCities }: Props) => {
   }, []);
 
   const addCity = (name: string) => {
-    if (existingCities.includes(name)) {
+    if (existingCities.some((city: any) => city?.name === name)) {
       alert("City already exists");
       return;
     }
-    console.log("CITY MODAL", name);
     dispatch(addCities(name));
+    setSearchCities("");
+    setCities(citiesList);
     onClose();
   };
 

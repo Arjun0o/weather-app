@@ -12,7 +12,7 @@ interface Props {
 
 const Home = ({ favorites, openModal }: Props) => {
   return (
-    <div className="p-8">
+    <div className="p-8 ">
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold">My Favorite cities</h1>
         <Button
@@ -26,13 +26,13 @@ const Home = ({ favorites, openModal }: Props) => {
           </div>
         </Button>
       </div>
-      <div className="flex mt-8 flex-wrap ">
+      <div className="flex mt-8 flex-wrap  ">
         {favorites.map((favorite: any) => (
           <CityCard
             key={favorite?.id}
             noPadding
             noHover
-            className="mr-6 mb-6 p-2"
+            className="mr-6 mb-6 p-6"
           >
             <div>
               <div className="bg-white rounded p-2 mb-4 flex items-center justify-between">
