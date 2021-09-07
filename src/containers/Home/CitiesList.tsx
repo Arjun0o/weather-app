@@ -4,8 +4,13 @@ import { Button } from "../../components";
 import classNames from "classnames";
 import { CityModal } from "./CityModal";
 import styles from "./Home.module.css";
+import { connect } from "react-redux";
 
-export const CitiesList = () => {
+interface Props {
+  cities: string[];
+}
+
+const CitiesList = ({ cities }: Props) => {
   const [modalIsOpen, setModal] = useState(false);
 
   function openModal() {
@@ -38,3 +43,11 @@ export const CitiesList = () => {
     </div>
   );
 };
+
+const mapStateToProps = function (state: any) {
+  return {
+    cities: state.cities.cities,
+  };
+};
+
+export default connect(mapStateToProps)(CitiesList);

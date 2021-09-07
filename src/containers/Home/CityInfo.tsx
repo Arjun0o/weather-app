@@ -3,8 +3,13 @@ import styles from "./Home.module.css";
 import { Button } from "../../components";
 import classNames from "classnames";
 import { FaStar } from "react-icons/fa";
+import { connect } from "react-redux";
 
-export const CityInfo = () => {
+interface Props {
+  weather: object;
+}
+
+const CityInfo = ({ weather }: Props) => {
   return (
     <div className={classNames("w-4/6", styles.cityInfo)}>
       <div
@@ -22,3 +27,11 @@ export const CityInfo = () => {
     </div>
   );
 };
+
+const mapStateToProps = function (state: any) {
+  return {
+    weather: state.weather,
+  };
+};
+
+export default connect(mapStateToProps)(CityInfo);

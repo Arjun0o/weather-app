@@ -5,8 +5,8 @@ import { Switch, Route } from "react-router-dom";
 export const Routes = () => {
   return (
     <Switch>
-      <Route path="/home" component={Home} />
-      <Route path="/cities" component={Cities} />
+      <Route path="/home" component={Cities} />
+      <Route path="/cities" component={Home} />
     </Switch>
   );
 };

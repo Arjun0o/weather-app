@@ -1,8 +1,8 @@
 import React from "react";
 import classNames from "classnames";
 import styles from "./Home.module.css";
-import { CitiesList } from "./CitiesList";
-import { CityInfo } from "./CityInfo";
+import CitiesList from "./CitiesList";
+import CityInfo from "./CityInfo";
 
 export const Home = () => {
   return (
