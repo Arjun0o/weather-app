@@ -9,6 +9,7 @@ interface RouteProps {
 export const Routes = ({ openModal }: RouteProps) => {
   return (
     <Switch>
+      <Route path="/" exact render={() => <Home openModal={openModal} />} />
       <Route path="/cities" render={() => <Cities openModal={openModal} />} />
       <Route path="/home" render={() => <Home openModal={openModal} />} />
     </Switch>
