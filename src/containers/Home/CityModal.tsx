@@ -4,15 +4,19 @@ import { CustomModal, Button, Input, CityCard } from "../../components";
 import { FaTimes, FaPlusSquare } from "react-icons/fa";
 import styles from "./Home.module.css";
 import { citiesList } from "../../utils/Cities";
+import { AddToCities } from "../../redux/modules/cities";
+import { useDispatch } from "react-redux";
 
 interface Props {
   open: boolean;
   onClose: () => void;
+  existingCities: string[];
 }
 
-export const CityModal = ({ open, onClose }: Props) => {
+export const CityModal = ({ open, onClose, existingCities }: Props) => {
   const [searchCities, setSearchCities] = useState("");
   const [cities, setCities] = useState<string[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setCities(citiesList);
@@ -30,6 +34,15 @@ export const CityModal = ({ open, onClose }: Props) => {
       );
     }
   }, []);
+
+  const addCity = (name: string) => {
+    if (existingCities.includes(name)) {
+      alert("City already exists");
+      return;
+    }
+    dispatch(AddToCities(name));
+    onClose();
+  };
 
   return (
     <CustomModal
@@ -69,7 +82,7 @@ export const CityModal = ({ open, onClose }: Props) => {
             <CityCard noHover>
               <div className="p-2 flex justify-between">
                 <h1>{city}</h1>
-                <Button type="button">
+                <Button type="button" onClick={() => addCity(city)}>
                   <FaPlusSquare
                     size={25}
                     onClick={() => {}}

@@ -24,7 +24,7 @@ export default function citiesReducer(
     case ADD_TO_CITIES:
       return {
         ...state,
-        cities: [...state.cities, ...action.payload],
+        cities: [...state.cities, action.payload],
       };
     default:
       return state;
@@ -32,7 +32,7 @@ export default function citiesReducer(
 }
 
 //action creator
-export function ADDToCities(city: String) {
+export function AddToCities(city: String) {
   return {
     type: ADD_TO_CITIES,
     payload: city,
