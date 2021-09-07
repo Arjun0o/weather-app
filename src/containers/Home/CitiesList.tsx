@@ -8,13 +8,16 @@ import { connect } from "react-redux";
 import { CityCard } from "../../components";
 import { getWeatherInfo } from "../../redux/modules/weather";
 import { useDispatch } from "react-redux";
+import { AddActiveCity } from "../../redux/modules/cities";
 
 interface Props {
   cities: string[];
+  activeCity: string;
 }
 
-const CitiesList = ({ cities }: Props) => {
+const CitiesList = ({ cities, activeCity }: Props) => {
   const [modalIsOpen, setModal] = useState(false);
+  // const [activeCity, setActiveCity] = useState("");
   const dispatch = useDispatch();
 
   function openModal() {
@@ -27,6 +30,10 @@ const CitiesList = ({ cities }: Props) => {
 
   const fetchWeatherDetails = (city: string) => {
     dispatch(getWeatherInfo(city));
+  };
+
+  const handleAddActiveCity = (city: string) => {
+    dispatch(AddActiveCity(city));
   };
 
   return (
@@ -55,10 +62,15 @@ const CitiesList = ({ cities }: Props) => {
         {cities.map((city, i) => (
           <div
             key={i}
-            className="mb-6"
-            onClick={() => fetchWeatherDetails(city)}
+            className={classNames("mb-6")}
+            onClick={() => {
+              handleAddActiveCity(city);
+              fetchWeatherDetails(city);
+            }}
           >
-            <CityCard>{city}</CityCard>
+            <CityCard selected={activeCity === city ? true : false}>
+              {city}
+            </CityCard>
           </div>
         ))}
       </div>
@@ -74,6 +86,7 @@ const CitiesList = ({ cities }: Props) => {
 const mapStateToProps = function (state: any) {
   return {
     cities: state.cities.cities,
+    activeCity: state.cities.activeCity,
   };
 };
 
