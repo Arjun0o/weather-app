@@ -6,7 +6,8 @@ import { CityModal } from "./CityModal";
 import styles from "./Home.module.css";
 import { connect } from "react-redux";
 import { CityCard } from "../../components";
-import { citiesList } from "../../utils/Cities";
+import { getWeatherInfo } from "../../redux/modules/weather";
+import { useDispatch } from "react-redux";
 
 interface Props {
   cities: string[];
@@ -14,6 +15,7 @@ interface Props {
 
 const CitiesList = ({ cities }: Props) => {
   const [modalIsOpen, setModal] = useState(false);
+  const dispatch = useDispatch();
 
   function openModal() {
     setModal(true);
@@ -23,12 +25,15 @@ const CitiesList = ({ cities }: Props) => {
     setModal(false);
   }
 
-  console.log(cities);
+  const fetchWeatherDetails = (city: string) => {
+    dispatch(getWeatherInfo(city));
+  };
+
   return (
     <div className={classNames("w-1/4 ", styles.cities)}>
       <div
         className={classNames(
-          "flex justify-between p-8",
+          "flex justify-between items-center p-8",
           styles.cities__header
         )}
       >
@@ -48,7 +53,11 @@ const CitiesList = ({ cities }: Props) => {
         )}
       >
         {cities.map((city, i) => (
-          <div key={i} className="mb-6">
+          <div
+            key={i}
+            className="mb-6"
+            onClick={() => fetchWeatherDetails(city)}
+          >
             <CityCard>{city}</CityCard>
           </div>
         ))}

@@ -10,3 +10,7 @@
 .icon:focus {
   fill: rgba(0, 0, 0, 0.3);
 }
+
+.text_white {
+  color: #fff;
+}
