@@ -4,7 +4,7 @@ import { Button, Map } from "../../components";
 import classNames from "classnames";
 import { FaStar } from "react-icons/fa";
 import { connect } from "react-redux";
-import { AddToFavorites } from "../../redux/modules/favorites";
+import { addFavorites } from "../../redux/modules/weather";
 import { useDispatch } from "react-redux";
 
 interface Props {
@@ -21,11 +21,11 @@ const CityInfo = ({ weather, favorites }: Props) => {
   }, [weather?.coords]);
 
   const handleAddToFavorites = (city: string) => {
-    if (favorites.includes(city)) {
+    if (favorites.some((favorite: any) => favorite.name === city)) {
       alert("Already added to favorites");
       return;
     }
-    dispatch(AddToFavorites(city));
+    dispatch(addFavorites(city));
     alert("Added to favorites");
   };
 
@@ -38,7 +38,7 @@ const CityInfo = ({ weather, favorites }: Props) => {
         )}
       >
         <h1 className={classNames("font-semibold text-lg uppercase")}>
-          {weather.name ? weather?.name : "City"}
+          {weather?.name ? weather?.name : "City"}
         </h1>
         <Button
           type="button"
@@ -88,8 +88,8 @@ const CityInfo = ({ weather, favorites }: Props) => {
 
 const mapStateToProps = function (state: any) {
   return {
-    weather: state.weather,
-    favorites: state.favorites.favorites,
+    weather: state?.data?.weather?.weather,
+    favorites: state?.data?.favorites,
   };
 };
 

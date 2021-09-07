@@ -6,18 +6,16 @@ import { CityModal } from "./CityModal";
 import styles from "./Home.module.css";
 import { connect } from "react-redux";
 import { CityCard } from "../../components";
-import { getWeatherInfo } from "../../redux/modules/weather";
+import { getWeatherInfo, AddActiveCity } from "../../redux/modules/weather";
 import { useDispatch } from "react-redux";
-import { AddActiveCity } from "../../redux/modules/cities";
 
 interface Props {
-  cities: string[];
+  cities: any;
   activeCity: string;
 }
 
 const CitiesList = ({ cities, activeCity }: Props) => {
   const [modalIsOpen, setModal] = useState(false);
-  // const [activeCity, setActiveCity] = useState("");
   const dispatch = useDispatch();
 
   function openModal() {
@@ -56,20 +54,26 @@ const CitiesList = ({ cities, activeCity }: Props) => {
       <div
         className={classNames(
           "p-8 h-5/6",
-          cities.length > 7 ? "overflow-y-scroll" : ""
+          cities.length > 5 ? "overflow-y-scroll" : ""
         )}
       >
-        {cities.map((city, i) => (
+        {cities.map((city: any, i: number) => (
           <div
             key={i}
             className={classNames("mb-6")}
             onClick={() => {
-              handleAddActiveCity(city);
-              fetchWeatherDetails(city);
+              handleAddActiveCity(city?.name);
+              fetchWeatherDetails(city?.name);
             }}
           >
-            <CityCard selected={activeCity === city ? true : false}>
-              {city}
+            <CityCard selected={activeCity === city?.name ? true : false}>
+              <>
+                <p>{city?.name}</p>
+                <p className="mt-2">
+                  {Math.round(city?.main?.temp ? city?.main?.temp - 273.15 : 0)}{" "}
+                  C
+                </p>
+              </>
             </CityCard>
           </div>
         ))}
@@ -85,8 +89,8 @@ const CitiesList = ({ cities, activeCity }: Props) => {
 
 const mapStateToProps = function (state: any) {
   return {
-    cities: state.cities.cities,
-    activeCity: state.cities.activeCity,
+    cities: state.data.cities,
+    activeCity: state.data.activeCity,
   };
 };
 

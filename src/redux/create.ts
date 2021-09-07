@@ -1,5 +1,3 @@
-import citiesReducer from "./modules/cities";
-import favoritesReducer from "./modules/favorites";
 import weatherReducer from "./modules/weather";
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk, { ThunkMiddleware } from "redux-thunk";
@@ -12,9 +10,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  cities: citiesReducer,
-  favorites: favoritesReducer,
-  weather: weatherReducer,
+  data: weatherReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

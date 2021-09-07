@@ -6,15 +6,25 @@ interface CityCardProps {
   children: JSX.Element | string;
   noHover?: boolean;
   selected?: boolean;
+  noPadding?: boolean;
+  className?: string;
 }
 
-export const CityCard = ({ children, noHover, selected }: CityCardProps) => {
+export const CityCard = ({
+  children,
+  noHover,
+  selected,
+  noPadding,
+  className,
+}: CityCardProps) => {
   return (
     <div
       className={classNames(
-        "p-5 rounded-lg cursor-pointer shadow",
+        " rounded-lg cursor-pointer shadow",
         !noHover && styles.card,
-        selected && styles.active
+        selected && styles.active,
+        !noPadding && "p-5",
+        className
       )}
     >
       {children}

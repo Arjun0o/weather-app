@@ -4,7 +4,7 @@ import { CustomModal, Button, Input, CityCard } from "../../components";
 import { FaTimes, FaPlusSquare } from "react-icons/fa";
 import styles from "./Home.module.css";
 import { citiesList } from "../../utils/Cities";
-import { AddToCities } from "../../redux/modules/cities";
+import { addCities } from "../../redux/modules/weather";
 import { useDispatch } from "react-redux";
 
 interface Props {
@@ -40,7 +40,8 @@ export const CityModal = ({ open, onClose, existingCities }: Props) => {
       alert("City already exists");
       return;
     }
-    dispatch(AddToCities(name));
+    console.log("CITY MODAL", name);
+    dispatch(addCities(name));
     onClose();
   };
 
