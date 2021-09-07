@@ -7,11 +7,12 @@ interface Props {
 }
 
 export const Map = ({ lat, lng }: Props) => {
+  console.log(process.env.REACT_APP_GOOGLE_API_KEY);
   return (
     <GoogleMapReact
       yesIWantToUseGoogleMapApiInternals
       bootstrapURLKeys={{
-        key: "AIzaSyDc9HfMHJ6Bj_sWRa18kKj4LwpPzd2-jwU",
+        key: `${process.env.REACT_APP_GOOGLE_API_KEY}`,
       }}
       center={{
         lat: lat,

@@ -2,7 +2,7 @@ import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { Action } from "redux";
 import axios from "axios";
 
-const WEATHER_API_KEY = "fbbc5458489286efe446af162e2def9e";
+const WEATHER_API_KEY = `${process.env.REACT_APP_WEATHER_API_KEY}`;
 
 //actions
 const GET_WEATHER_UPDATES = "GET_WEATHER_UPDATES";
