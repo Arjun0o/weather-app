@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "../../components";
 import { Routes } from "../../Routes";
 import classNames from "classnames";
+import { connect } from "react-redux";
+import { CityModal } from "./CityModal";
 
 import styles from "./Layout.module.css";
 
@@ -10,7 +12,20 @@ const menus = [
   { name: "Cities", path: "/cities" },
 ];
 
-export const Layout = () => {
+interface Props {
+  cities: any;
+}
+
+const Layout = ({ cities }: Props) => {
+  const [modalIsOpen, setModal] = useState(false);
+
+  function openModal() {
+    setModal(true);
+  }
+
+  function closeModal() {
+    setModal(false);
+  }
   return (
     <div
       className={classNames(
@@ -20,8 +35,22 @@ export const Layout = () => {
     >
       <Navbar menus={menus} />
       <div className={classNames("w-11/12 p-10", styles.layout__routes)}>
-        <Routes />
+        <Routes openModal={openModal} />
       </div>
+      <CityModal
+        existingCities={cities}
+        open={modalIsOpen}
+        onClose={closeModal}
+      />
     </div>
   );
 };
+
+const mapStateToProps = function (state: any) {
+  return {
+    cities: state.data.cities,
+    activeCity: state.data.activeCity,
+  };
+};
+
+export default connect(mapStateToProps)(Layout);

@@ -7,15 +7,17 @@ import { connect } from "react-redux";
 
 interface Props {
   favorites: any;
+  openModal: () => void;
 }
 
-const Home = ({ favorites }: Props) => {
+const Home = ({ favorites, openModal }: Props) => {
   return (
     <div className="p-8">
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold">My Favorite cities</h1>
         <Button
           type="button"
+          onClick={() => openModal()}
           className={classNames("border-2 p-2 btn", styles.home__btn)}
         >
           <div className="flex items-center justify-center">

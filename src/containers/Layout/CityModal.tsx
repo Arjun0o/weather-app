@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import classNames from "classnames";
 import { CustomModal, Button, Input, CityCard } from "../../components";
 import { FaTimes, FaPlusSquare } from "react-icons/fa";
-import styles from "./Home.module.css";
+import styles from "./Layout.module.css";
 import { citiesList } from "../../utils/Cities";
 import { addCities } from "../../redux/modules/weather";
 import { useDispatch } from "react-redux";

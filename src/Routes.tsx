@@ -2,11 +2,15 @@ import React from "react";
 import { Cities, Home } from "./containers";
 import { Switch, Route } from "react-router-dom";
 
-export const Routes = () => {
+interface RouteProps {
+  openModal: () => void;
+}
+
+export const Routes = ({ openModal }: RouteProps) => {
   return (
     <Switch>
-      <Route path="/cities" component={Cities} />
-      <Route path="/home" component={Home} />
+      <Route path="/cities" render={() => <Cities openModal={openModal} />} />
+      <Route path="/home" render={() => <Home openModal={openModal} />} />
     </Switch>
   );
 };

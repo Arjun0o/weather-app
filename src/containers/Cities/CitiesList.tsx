@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import { Button } from "../../components";
 import classNames from "classnames";
-import { CityModal } from "./CityModal";
 import styles from "./Home.module.css";
 import { connect } from "react-redux";
 import { CityCard } from "../../components";
@@ -12,19 +11,11 @@ import { useDispatch } from "react-redux";
 interface Props {
   cities: any;
   activeCity: string;
+  openModal: () => void;
 }
 
-const CitiesList = ({ cities, activeCity }: Props) => {
-  const [modalIsOpen, setModal] = useState(false);
+const CitiesList = ({ cities, activeCity, openModal }: Props) => {
   const dispatch = useDispatch();
-
-  function openModal() {
-    setModal(true);
-  }
-
-  function closeModal() {
-    setModal(false);
-  }
 
   const fetchWeatherDetails = (city: string) => {
     dispatch(getWeatherInfo(city));
@@ -78,11 +69,6 @@ const CitiesList = ({ cities, activeCity }: Props) => {
           </div>
         ))}
       </div>
-      <CityModal
-        existingCities={cities}
-        open={modalIsOpen}
-        onClose={closeModal}
-      />
     </div>
   );
 };

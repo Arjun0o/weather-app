@@ -4,13 +4,17 @@ import styles from "./Home.module.css";
 import CitiesList from "./CitiesList";
 import CityInfo from "./CityInfo";
 
-export const Cities = () => {
+interface Props {
+  openModal: () => void;
+}
+
+export const Cities = ({ openModal }: Props) => {
   return (
     <>
       <div
         className={classNames("w-full h-full flex justify-around", styles.home)}
       >
-        <CitiesList />
+        <CitiesList openModal={openModal} />
         <CityInfo />
       </div>
     </>
