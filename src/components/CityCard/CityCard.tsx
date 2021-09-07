@@ -3,20 +3,19 @@ import classNames from "classnames";
 import styles from "./CityCard.module.css";
 
 interface CityCardProps {
-  title: string;
-  temp: string;
+  children: JSX.Element | string;
+  noHover?: boolean;
 }
 
-export const CityCard = ({ title, temp }: CityCardProps) => {
+export const CityCard = ({ children, noHover }: CityCardProps) => {
   return (
     <div
       className={classNames(
         "p-5 rounded-lg cursor-pointer shadow",
-        styles.card
+        !noHover && styles.card
       )}
     >
-      <h2 className="mb-4 font-bold">{title}</h2>
-      <p>{temp}</p>
+      {children}
     </div>
   );
 };
