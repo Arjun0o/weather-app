@@ -2,15 +2,16 @@
 
 While using React the focus was on
 
-● Use of functional components.
-● Hooks use.
-● Components reusability.
-● Folder structure.
-● Redux props injection into the react component.
-● Routes management.
+● Use of functional components 
+● Hooks use 
+● Components reusability 
+● Folder structure 
+● Redux props injection into the react component 
+● Routes management 
 
 While using Redux my focus was on
 
+<<<<<<< HEAD
 ● Folder structure by feature (Ducks).
 ● Naming conventions of action and action types.
 ● Side effects handling using Redux thunk.
@@ -19,3 +20,11 @@ While using Redux my focus was on
 ● Persistence of some data as stated in the assignment.
 
 For CSS I have used Tailwind to come up with a simple UI.
+=======
+● Folder structure by feature (Ducks) 
+● Naming conventions of action and action types 
+● Side effects handling using Redux thunk 
+● Handling reducers 
+● Use of selectors 
+● Persistence of some data as stated in the assignment 
+>>>>>>> b1788d3c416738b253c1201d540685283eb9b5cb
