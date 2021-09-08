@@ -145,7 +145,7 @@ export const getWeatherInfo = (
   return async (dispatch: ThunkDispatch<{}, {}, Action>): Promise<void> => {
     try {
       const { data } = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
       );
 
       const cityData = {
@@ -168,7 +168,7 @@ export const addCities = (city: string): ThunkAction<void, {}, {}, Action> => {
   return async (dispatch: ThunkDispatch<{}, {}, Action>): Promise<void> => {
     try {
       const { data } = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
       );
       const cityData = {
         id: data.id,
@@ -190,7 +190,7 @@ export const addFavorites = (
   return async (dispatch: ThunkDispatch<{}, {}, Action>): Promise<void> => {
     try {
       const { data } = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
       );
 
       const cityData = {
