@@ -158,7 +158,7 @@ export const getWeatherInfo = (
       };
       dispatch(GetWeatherUpdates(cityData));
     } catch (e) {
-      const { message } = e.response.data;
+      const { message } = e?.response?.data;
       alert(message);
     }
   };
@@ -178,7 +178,7 @@ export const addCities = (city: string): ThunkAction<void, {}, {}, Action> => {
       };
       dispatch(AddToCities(cityData));
     } catch (e) {
-      const { message } = e.response.data;
+      const { message } = e?.response?.data;
       alert(message);
     }
   };
@@ -201,7 +201,7 @@ export const addFavorites = (
       };
       dispatch(AddToFavorites(cityData));
     } catch (e) {
-      const { message } = e.response.data;
+      const { message } = e?.response?.data;
       alert(message);
     }
   };
