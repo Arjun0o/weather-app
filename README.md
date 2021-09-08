@@ -1,6 +1,6 @@
 # Weather app using react, redux, typescript and tailwind
 
-While using React my focus was on
+While using React the focus was on
 
 ● Use of functional components.
 ● Hooks use.
@@ -17,3 +17,5 @@ While using Redux my focus was on
 ● Handling reducers.
 ● Use of selectors.
 ● Persistence of some data as stated in the assignment.
+
+For CSS I have used Tailwind to come up with a simple UI.
